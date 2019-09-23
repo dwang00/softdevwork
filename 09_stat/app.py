@@ -33,27 +33,29 @@ for arr in ary:
         #print(arr)
 diction.update({arr[0]:float(arr[1])})
     #print(diction)
-"""
-def randomJob():
-    weightedList = []
-    for job in diction:
-        weight = int(float(diction[job]) * 10)
+
+#def randomJob():
+weightedList = []
+for job in diction:
+    weight = int(float(diction[job]) * 10)
         #print(weight)
-        while weight > 0:
-            weightedList.append(job)
+    original = weight
+    while weight > 0:
+        weightedList.append(job + ", " + str(float(original) / 10.0))
             #print(weightedList)
-            weight = weight - 1
+        weight = weight - 1
     #print(weightedList)
-    #d = weightedList[random.randint(0, len(weightedList) - 1)]
+
 
 #convertToDict()
 #randomJob()
-"""
-@app.route("/my_foist_template")
+
+@app.route("/occupyflaskst")
 def test_tmplt():
    return render_template(
       'model_tmplt.html',
-      d = ary)
+      d = ary,
+      f = weightedList[random.randint(0, len(weightedList) - 1)])
 
 if __name__ == "__main__":
     app.debug = True
