@@ -13,49 +13,46 @@ def hello_world():
 
 
 diction = {}
-#def convertToDict():
-ary = []
-file = open('occupations.csv', 'r')
-file.readline()
-for line in file:
-    if '"' in line:
+def convertToDict():
+    ary = []
+    file = open('occupations.csv', 'r')
+    file.readline()
+    for line in file:
+        if '"' in line:
             #print(line.split('"')[1:])
-        ary.append(line.split('"')[1:])
+            ary.append(line.split('"')[1:])
         #print(line.split(',')[0])
-    else:
-        ary.append(line.split(','))
-ary = ary[:-1]
-for arr in ary:
-    if ',' in arr[1]:
-        arr[1] = arr[1][1:]
-    print(arr[1])
-    arr[1] = arr[1].replace('\n', '')
+        else:
+            ary.append(line.split(','))
+    ary = ary[:-1]
+    for arr in ary:
+        if ',' in arr[1]:
+            arr[1] = arr[1][1:]
+        #print(arr[1])
+        arr[1] = arr[1].replace('\n', '')
         #print(arr)
-diction.update({arr[0]:float(arr[1])})
+        diction.update({arr[0]:float(arr[1])})
     #print(diction)
+    return ary
 
-#def randomJob():
-weightedList = []
-for job in diction:
-    weight = int(float(diction[job]) * 10)
+def randomJob():
+    weightedList = []
+    for job in diction:
+        weight = int(float(diction[job]) * 10)
+        original = weight
         #print(weight)
-    original = weight
-    while weight > 0:
-        weightedList.append(job + ", " + str(float(original) / 10.0))
+        while weight > 0:
+            weightedList.append(job + ", " + str(float(original) / 10.0))
             #print(weightedList)
-        weight = weight - 1
+            weight = weight - 1
     #print(weightedList)
-
-
-#convertToDict()
-#randomJob()
-
+    return(weightedList[random.randint(0, len(weightedList) - 1)])
 @app.route("/occupyflaskst")
 def test_tmplt():
    return render_template(
       'model_tmplt.html',
-      d = ary,
-      f = weightedList[random.randint(0, len(weightedList) - 1)])
+      d = convertToDict(),
+      f = randomJob())
 
 if __name__ == "__main__":
     app.debug = True
