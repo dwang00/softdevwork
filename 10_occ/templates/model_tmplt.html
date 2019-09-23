@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<!--
+     stub html file
+     Clyde "Thluffy" Sinclair, StuyCS
+-->
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>
+
+	  </title>
+  </head>
+
+  <body>
+  <h3>Chopped Statistics</h3>
+  <h4>Jinja Tuning Flask App for Mykolyk Soft Dev</h4>
+  <p>Team Dian Nao: Hannah Fried and David Wang</p>
+  <table border = 1>
+      <th>Job</th>
+      <th>Stat</th>
+      
+  {% for i in d %}
+      <tr>
+        {% for e in i %}
+         <td>{{e}}</td>
+        {%endfor%}
+      </tr>
+    {%endfor%}
+  <p>{{f}}</p>
+  </body>
+</html>
+
+
+
