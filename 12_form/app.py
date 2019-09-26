@@ -1,7 +1,7 @@
 #Ethan Chen and David "Snake" Wang
 #SoftDev1 pd2
 #12_form flask app
-#2019-09-25t
+#2019-09-26
 
 from flask import Flask, render_template, request
 app = Flask(__name__) #create instance of class Flask
