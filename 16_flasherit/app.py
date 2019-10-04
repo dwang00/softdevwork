@@ -38,7 +38,7 @@ def verify():
     if session["user"] == session["username"] and session["pass"] == session["password"]:
         return redirect(url_for("welcome"))
     else:
-        return "Either the username or password is wrong"
+        return "No"
 
 @app.route("/home")
 def welcome():
