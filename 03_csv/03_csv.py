@@ -1,10 +1,14 @@
-import csv;
-import random;
+import csv
+import random
 with open('occupations.csv') as csv_file:
-    f = list(csv.DictReader(csv_file));
-    del f[-1];
-    values  = [];
-    for row in f:
-        row['Percentage'] = float(row['Percentage']);
-        values.append(row['Percentage']);
-    print(random.choices(f, weights = values, k = 1));
+    file = list(csv.DictReader(csv_file))
+    del file[-1]
+    stats = []
+    weights = []
+    for row in file:
+        add = row['Job Class'], ", ", row['Percentage']
+        stats.append(add)
+        #row['Percentage'] = float(row['Percentage'])
+        weights.append(float(row['Percentage']))
+    print(random.choices(stats, weights = weights, k = 1))
+    #print(picked.key(), picked.value());
