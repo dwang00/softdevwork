@@ -1,7 +1,8 @@
-#Clyde "Thluffy" Sinclair
-#SoftDev1 pd0
-#demo -- My First Flask App
-#2019-09-17t
+#David "Snake" Wang
+#Joseph Yusufov
+#Soft Dev Pd 2
+#24_rand
+#2019-11-12
 
 from flask import Flask, render_template
 import urllib, json
