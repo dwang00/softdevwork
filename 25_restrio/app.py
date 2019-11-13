@@ -32,7 +32,6 @@ def ghibliapi():
     )
     response = u.read()
     data = json.loads(response)
-    print(data)
     return render_template("ghibliapi.html",
         title = data[0]['title'],
         description = data[0]['description'],
