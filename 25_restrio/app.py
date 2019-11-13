@@ -21,7 +21,9 @@ def jikan():
     return render_template("jikan.html",
         title = data['title'],
         synopsis = data['synopsis'],
-        image = data['image_url'])
+        image = data['image_url'],
+        episodes = data['episodes'],
+        premiered = data['premiered'])
 
 @app.route("/ghibliapi")
 def ghibliapi():
@@ -34,7 +36,9 @@ def ghibliapi():
     return render_template("ghibliapi.html",
         title = data[0]['title'],
         description = data[0]['description'],
-        director = data[0]['director'])
+        director = data[0]['director'],
+        producer = data[0]['producer'],
+        releasedate = data[0]['release_date'])
 
 @app.route("/pokeapi")
 def pokeapi():
