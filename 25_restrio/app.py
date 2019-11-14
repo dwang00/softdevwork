@@ -47,7 +47,8 @@ def pokeapi():
     u = urllib.request.urlopen(request)
     response = u.read()
     data = json.loads(response)
-    return render_template("pokeapi.html", name = data['name'],
+    return render_template("pokeapi.html", 
+        name = data['name'],
         number = data['game_indices'][1]['game_index'],
         type1 = data['types'][1]['type']['name'],
         type2 = data['types'][0]['type']['name'],
